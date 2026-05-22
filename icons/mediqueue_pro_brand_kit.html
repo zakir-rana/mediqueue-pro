@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MediQueue Pro – Brand Identity Kit</title>
+<style>
+  :root {
+    --navy: #050E1A;
+    --navy2: #0A1628;
+    --navy3: #0D2247;
+    --blue:  #185FA5;
+    --cyan:  #0EA5E9;
+    --cyan2: #06B6D4;
+    --green: #059669;
+    --emerald: #10B981;
+    --purple: #7C3AED;
+    --slate: #475569;
+    --muted: #334155;
+    --border: #1E3A5F;
+    --light-bg: #F8FAFC;
+    --light-border: #E2E8F0;
+    --text-light: #94A3B8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--navy);
+    color: #F8FAFC;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: rgba(5,14,26,0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 clamp(16px, 4vw, 48px);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .header-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px; gap: 12px;
+  }
+  .logo-pill {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .logo-hex {
+    width: 36px; height: 36px; flex-shrink: 0;
+  }
+  .logo-text { font-size: clamp(14px, 3vw, 17px); font-weight: 800; letter-spacing: -.03em; }
+  .logo-text span { font-weight: 200; color: var(--cyan); }
+  .pro-badge {
+    background: var(--green); color: #fff;
+    font-size: 9px; font-weight: 700; letter-spacing: .15em;
+    padding: 3px 7px; border-radius: 4px; margin-left: 4px;
+  }
+  .header-tag {
+    font-size: 10px; font-weight: 400; letter-spacing: .1em;
+    color: var(--text-light); white-space: nowrap;
+    display: none;
+  }
+  @media(min-width:480px){ .header-tag { display: block; } }
+
+  /* ── LAYOUT ── */
+  .page { max-width: 1100px; margin: 0 auto; padding: clamp(24px,5vw,64px) clamp(16px,4vw,48px); }
+
+  /* ── HERO ── */
+  .hero {
+    text-align: center;
+    padding: clamp(40px,8vw,96px) 0 clamp(32px,6vw,72px);
+    position: relative;
+  }
+  .hero-eyebrow {
+    font-size: 10px; font-weight: 600; letter-spacing: .25em;
+    color: var(--cyan); text-transform: uppercase; margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 7vw, 72px);
+    font-weight: 900; letter-spacing: -.04em;
+    line-height: 1.05; margin-bottom: 8px;
+  }
+  .hero h1 span { font-weight: 200; color: var(--cyan); }
+  .hero-sub {
+    font-size: clamp(12px, 2vw, 16px); font-weight: 300;
+    letter-spacing: .05em; color: var(--slate); margin-bottom: 28px;
+  }
+  .hero-pills {
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  }
+  .pill {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--navy3); border: .8px solid var(--border);
+    border-radius: 20px; padding: 6px 14px;
+    font-size: 11px; letter-spacing: .06em; color: var(--text-light);
+  }
+  .pill-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-size: 10px; font-weight: 600; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--text-light);
+    margin-bottom: 16px;
+  }
+
+  /* ── LOGO CARDS GRID ── */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 16px; margin-bottom: 48px;
+  }
+  .logo-card {
+    border-radius: 16px; overflow: hidden;
+    border: .5px solid var(--border);
+    display: flex; flex-direction: column;
+  }
+  .logo-card-preview {
+    display: flex; align-items: center; justify-content: center;
+    padding: clamp(28px,5vw,52px) clamp(20px,4vw,40px);
+    min-height: clamp(160px,25vw,220px);
+  }
+  .logo-card-preview.dark  { background: var(--navy2); }
+  .logo-card-preview.light { background: var(--light-bg); }
+  .logo-card-preview.mono  { background: #0F172A; }
+  .logo-card-preview.mono-light { background: #F1F5F9; }
+  .logo-card-footer {
+    background: var(--navy2); border-top: .5px solid var(--border);
+    padding: 12px 16px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px;
+  }
+  .logo-card-label { font-size: 11px; color: var(--text-light); letter-spacing: .06em; }
+  .dl-btn {
+    background: var(--navy3); border: .8px solid var(--border);
+    color: var(--cyan); font-size: 10px; font-weight: 600;
+    letter-spacing: .1em; padding: 5px 12px; border-radius: 6px;
+    cursor: pointer; text-decoration: none; white-space: nowrap;
+    transition: background .2s, border-color .2s;
+  }
+  .dl-btn:hover { background: #1E3A5F; border-color: var(--cyan); }
+
+  /* inline SVG logos in cards – responsive */
+  .card-svg { width: 100%; max-width: 380px; height: auto; }
+  .card-svg-sm { width: 100%; max-width: 240px; height: auto; }
+
+  /* ── ICON ROW ── */
+  .icon-row {
+    display: flex; flex-wrap: wrap; gap: 16px;
+    margin-bottom: 48px; align-items: flex-end;
+  }
+  .icon-box {
+    background: var(--navy2); border: .5px solid var(--border);
+    border-radius: 16px; padding: 20px;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+    flex: 1; min-width: 100px;
+  }
+  .icon-box .lbl { font-size: 10px; color: var(--text-light); letter-spacing: .08em; }
+
+  /* ── COLOR PALETTE ── */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%,140px),1fr));
+    gap: 10px; margin-bottom: 48px;
+  }
+  .swatch {
+    border-radius: 10px; overflow: hidden;
+    border: .5px solid var(--border);
+  }
+  .swatch-color { height: 60px; }
+  .swatch-info { background: var(--navy2); padding: 8px 10px; }
+  .swatch-name { font-size: 11px; font-weight: 600; color: #F8FAFC; }
+  .swatch-hex  { font-size: 10px; color: var(--text-light); font-family: monospace; }
+
+  /* ── TYPOGRAPHY ── */
+  .type-card {
+    background: var(--navy2); border: .5px solid var(--border);
+    border-radius: 16px; padding: clamp(20px,4vw,36px);
+    margin-bottom: 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%,220px),1fr));
+    gap: 24px;
+  }
+  .type-sample { border-right: .5px solid var(--border); padding-right: 24px; }
+  .type-sample:last-child { border-right: none; padding-right: 0; }
+  .type-label { font-size: 10px; color: var(--text-light); letter-spacing: .15em; margin-bottom: 8px; }
+
+  /* ── MOBILE MOCKUP ── */
+  .mockup-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%,260px),1fr));
+    gap: 16px; margin-bottom: 48px;
+  }
+  .mockup-card {
+    background: var(--navy2); border: .5px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+  }
+  .mockup-header {
+    background: var(--navy3); border-bottom: .5px solid var(--border);
+    padding: 10px 16px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .mockup-title { font-size: 10px; font-weight: 600; letter-spacing: .12em; color: var(--text-light); }
+  .mockup-body { padding: 16px; }
+
+  /* TV Queue Display */
+  .tv-queue {
+    background: #020812; border-radius: 12px; padding: 16px;
+    text-align: center;
+  }
+  .tv-now { font-size: 10px; letter-spacing: .2em; color: var(--slate); margin-bottom: 4px; }
+  .tv-token { font-size: clamp(36px,8vw,64px); font-weight: 900; letter-spacing: -.04em; color: #F8FAFC; margin-bottom: 4px; }
+  .tv-token span { color: var(--cyan); }
+  .tv-meta { font-size: 10px; color: var(--slate); }
+  .tv-queue-list { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+  .tv-queue-item {
+    background: var(--navy3); border: .5px solid var(--border);
+    border-radius: 8px; padding: 8px 12px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px;
+  }
+  .tv-queue-item .tok { font-weight: 700; color: #F8FAFC; }
+  .tv-queue-item .room { color: var(--text-light); }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .status-dot.active { background: var(--emerald); }
+  .status-dot.waiting { background: var(--cyan); }
+  .status-dot.called { background: #F59E0B; }
+
+  /* Mobile App Mockup */
+  .mobile-frame {
+    border: 1.5px solid var(--border); border-radius: 20px;
+    background: var(--navy2); overflow: hidden;
+    max-width: 220px; margin: 0 auto;
+  }
+  .mobile-notch {
+    background: #000; height: 28px; display: flex;
+    align-items: center; justify-content: center;
+  }
+  .notch-bar { width: 80px; height: 10px; background: #111; border-radius: 10px; }
+  .mobile-status {
+    background: var(--navy3); padding: 8px 14px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .mobile-header {
+    padding: 12px 14px; border-bottom: .5px solid var(--border);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .mobile-content { padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+  .m-card {
+    background: var(--navy3); border: .5px solid var(--border);
+    border-radius: 10px; padding: 10px 12px;
+  }
+  .m-card-label { font-size: 9px; color: var(--text-light); margin-bottom: 2px; }
+  .m-card-value { font-size: 16px; font-weight: 800; }
+  .m-row { display: flex; gap: 8px; }
+  .m-row .m-card { flex: 1; }
+
+  /* Receipt / Prescription Pad */
+  .rx-pad {
+    background: #fff; border-radius: 12px;
+    padding: 16px; color: #0F172A;
+    border: 1px solid #E2E8F0;
+  }
+  .rx-header { border-bottom: 1px solid #E2E8F0; padding-bottom: 10px; margin-bottom: 10px; }
+  .rx-title { font-size: 14px; font-weight: 800; letter-spacing: -.02em; }
+  .rx-title span { font-weight: 200; color: #185FA5; }
+  .rx-sub { font-size: 8px; letter-spacing: .15em; color: #94A3B8; }
+  .rx-field { border-bottom: .8px solid #E2E8F0; padding: 6px 0; font-size: 10px; color: #64748B; margin-bottom: 6px; }
+  .rx-field span { color: #0F172A; font-weight: 600; }
+  .rx-footer { font-size: 8px; color: #CBD5E1; margin-top: 8px; }
+
+  /* ── DOWNLOAD ALL ── */
+  .download-all {
+    background: var(--navy2); border: .5px solid var(--border);
+    border-radius: 20px; padding: clamp(24px,5vw,48px);
+    text-align: center; margin-bottom: 48px;
+  }
+  .dl-all-title { font-size: clamp(18px,4vw,28px); font-weight: 800; letter-spacing: -.03em; margin-bottom: 8px; }
+  .dl-all-sub { font-size: 12px; color: var(--text-light); margin-bottom: 24px; }
+  .dl-all-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%,160px),1fr));
+    gap: 10px; margin-bottom: 24px; text-align: left;
+  }
+  .dl-file {
+    background: var(--navy3); border: .5px solid var(--border);
+    border-radius: 10px; padding: 12px 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .dl-icon { font-size: 18px; }
+  .dl-file-name { font-size: 10px; font-weight: 600; color: #F8FAFC; line-height: 1.3; }
+  .dl-file-size { font-size: 9px; color: var(--text-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: .5px solid var(--border); padding: 24px clamp(16px,4vw,48px);
+    text-align: center; font-size: 10px; color: var(--muted); letter-spacing: .1em;
+  }
+
+  @media(max-width:480px){
+    .type-sample { border-right: none; border-bottom: .5px solid var(--border); padding-right: 0; padding-bottom: 16px; }
+    .type-sample:last-child { border-bottom: none; padding-bottom: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo-pill">
+      <svg class="logo-hex" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="40,4 68,20 68,56 40,72 12,56 12,20" fill="none" stroke="#185FA5" stroke-width="1.5"/>
+        <polygon points="40,14 58,25 58,51 40,62 22,51 22,25" fill="#0A1628" stroke="#0EA5E9" stroke-width="1"/>
+        <rect x="34" y="25" width="12" height="30" rx="3" fill="#0EA5E9"/>
+        <rect x="24" y="34" width="32" height="12" rx="3" fill="#0EA5E9"/>
+        <circle cx="40" cy="40" r="6" fill="#10B981"/>
+        <path d="M58 25 Q72 14 68 56" fill="none" stroke="#10B981" stroke-width="1.5" stroke-dasharray="3 4" stroke-linecap="round"/>
+        <circle cx="74" cy="38" r="4" fill="#0EA5E9"/>
+        <circle cx="84" cy="38" r="3" fill="#0EA5E9" opacity=".55"/>
+      </svg>
+      <span class="logo-text">Medi<span>Queue</span></span>
+      <span class="pro-badge">PRO</span>
+    </div>
+    <span class="header-tag">Brand Identity Kit</span>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="page">
+  <div class="hero">
+    <div class="hero-eyebrow">Direction 04 · Hexa Sync · Recommended</div>
+    <h1>Medi<span>Queue</span><br>Pro</h1>
+    <div class="hero-sub">Smart Chamber Management · Healthcare Technology · Bangladesh</div>
+    <div class="hero-pills">
+      <div class="pill"><div class="pill-dot" style="background:#10B981"></div>AI-Ready Platform</div>
+      <div class="pill"><div class="pill-dot" style="background:#0EA5E9"></div>Realtime Sync</div>
+      <div class="pill"><div class="pill-dot" style="background:#7C3AED"></div>Cloud-Native SaaS</div>
+      <div class="pill"><div class="pill-dot" style="background:#059669"></div>Enterprise Grade</div>
+    </div>
+  </div>
+
+  <!-- LOGO VERSIONS -->
+  <div class="section-title">Logo Versions</div>
+  <div class="logo-grid">
+
+    <!-- Dark -->
+    <div class="logo-card">
+      <div class="logo-card-preview dark">
+        <svg class="card-svg" viewBox="0 0 540 200" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(30,50)">
+            <polygon points="60,0 100,22 100,68 60,90 20,68 20,22" fill="none" stroke="#185FA5" stroke-width="1.8"/>
+            <polygon points="60,12 86,27 86,63 60,78 34,63 34,27" fill="#0A1628" stroke="#0EA5E9" stroke-width="1.2"/>
+            <rect x="52" y="28" width="16" height="42" rx="4" fill="#0EA5E9"/>
+            <rect x="36" y="44" width="48" height="16" rx="4" fill="#0EA5E9"/>
+            <circle cx="60" cy="52" r="7" fill="#10B981"/>
+            <path d="M86 27 Q106 14 100 68" fill="none" stroke="#10B981" stroke-width="1.5" stroke-dasharray="3 5" stroke-linecap="round"/>
+            <circle cx="113" cy="50" r="5" fill="#0EA5E9"/>
+            <circle cx="125" cy="50" r="5" fill="#0EA5E9" opacity=".6"/>
+            <circle cx="137" cy="50" r="5" fill="#0EA5E9" opacity=".3"/>
+            <path d="M143 46 L153 50 L143 54" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <text x="210" y="85" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="900" font-size="52" letter-spacing="-2" fill="#F8FAFC">Medi</text>
+          <text x="210" y="137" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="200" font-size="52" letter-spacing="-1.5" fill="#0EA5E9">Queue</text>
+          <rect x="210" y="147" width="220" height="1.5" fill="#1E3A5F"/>
+          <rect x="210" y="156" width="44" height="18" rx="3.5" fill="#059669"/>
+          <text x="232" y="168" text-anchor="middle" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="700" font-size="9" letter-spacing="1.5" fill="#fff">PRO</text>
+          <text x="264" y="168" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="300" font-size="10" letter-spacing="1.5" fill="#475569">  Smart Chamber Mgmt.</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-label">Dark · Primary</span>
+        <a class="dl-btn" href="mediqueue_pro_dark_HD.png" download>↓ PNG</a>
+      </div>
+    </div>
+
+    <!-- Light -->
+    <div class="logo-card">
+      <div class="logo-card-preview light">
+        <svg class="card-svg" viewBox="0 0 540 200" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(30,50)">
+            <polygon points="60,0 100,22 100,68 60,90 20,68 20,22" fill="none" stroke="#BFDBFE" stroke-width="1.8"/>
+            <polygon points="60,12 86,27 86,63 60,78 34,63 34,27" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.2"/>
+            <rect x="52" y="28" width="16" height="42" rx="4" fill="#185FA5"/>
+            <rect x="36" y="44" width="48" height="16" rx="4" fill="#185FA5"/>
+            <circle cx="60" cy="52" r="7" fill="#059669"/>
+            <path d="M86 27 Q106 14 100 68" fill="none" stroke="#059669" stroke-width="1.5" stroke-dasharray="3 5" stroke-linecap="round"/>
+            <circle cx="113" cy="50" r="5" fill="#0EA5E9"/>
+            <circle cx="125" cy="50" r="5" fill="#0EA5E9" opacity=".6"/>
+            <circle cx="137" cy="50" r="5" fill="#0EA5E9" opacity=".3"/>
+            <path d="M143 46 L153 50 L143 54" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <text x="210" y="85" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="900" font-size="52" letter-spacing="-2" fill="#0F172A">Medi</text>
+          <text x="210" y="137" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="200" font-size="52" letter-spacing="-1.5" fill="#185FA5">Queue</text>
+          <rect x="210" y="147" width="220" height="1.5" fill="#E2E8F0"/>
+          <rect x="210" y="156" width="44" height="18" rx="3.5" fill="#059669"/>
+          <text x="232" y="168" text-anchor="middle" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="700" font-size="9" letter-spacing="1.5" fill="#fff">PRO</text>
+          <text x="264" y="168" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="300" font-size="10" letter-spacing="1.5" fill="#94A3B8">  Smart Chamber Mgmt.</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-label">Light · Print-ready</span>
+        <a class="dl-btn" href="mediqueue_pro_light_HD.png" download>↓ PNG</a>
+      </div>
+    </div>
+
+    <!-- Monochrome -->
+    <div class="logo-card">
+      <div class="logo-card-preview mono">
+        <svg class="card-svg" viewBox="0 0 540 200" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(30,50)">
+            <polygon points="60,0 100,22 100,68 60,90 20,68 20,22" fill="none" stroke="#fff" stroke-width="2"/>
+            <polygon points="60,12 86,27 86,63 60,78 34,63 34,27" fill="#0F172A" stroke="#fff" stroke-width="1.2"/>
+            <rect x="52" y="28" width="16" height="42" rx="4" fill="#fff"/>
+            <rect x="36" y="44" width="48" height="16" rx="4" fill="#fff"/>
+            <circle cx="60" cy="52" r="7" fill="#0F172A" stroke="#fff" stroke-width="2"/>
+            <path d="M86 27 Q106 14 100 68" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="3 5" stroke-linecap="round"/>
+            <circle cx="113" cy="50" r="5" fill="#fff"/>
+            <circle cx="125" cy="50" r="5" fill="#fff" opacity=".6"/>
+            <circle cx="137" cy="50" r="5" fill="#fff" opacity=".3"/>
+            <path d="M143 46 L153 50 L143 54" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <text x="210" y="90" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="900" font-size="52" letter-spacing="-2" fill="#fff">Medi</text>
+          <text x="210" y="140" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="200" font-size="52" letter-spacing="-1.5" fill="#fff">Queue</text>
+          <rect x="210" y="150" width="230" height="1" fill="#334155"/>
+          <text x="210" y="170" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="600" font-size="10" letter-spacing="3" fill="#475569">PRO  ·  SMART CHAMBER MANAGEMENT</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-label">Monochrome · Emboss</span>
+        <a class="dl-btn" href="mediqueue_pro_monochrome_HD.png" download>↓ PNG</a>
+      </div>
+    </div>
+
+    <!-- Transparent -->
+    <div class="logo-card">
+      <div class="logo-card-preview" style="background:repeating-conic-gradient(#1E3A5F 0% 25%, #0A1628 0% 50%) 0 0/20px 20px;">
+        <svg class="card-svg" viewBox="0 0 540 200" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(30,50)">
+            <polygon points="60,0 100,22 100,68 60,90 20,68 20,22" fill="none" stroke="#185FA5" stroke-width="1.8"/>
+            <polygon points="60,12 86,27 86,63 60,78 34,63 34,27" fill="rgba(10,22,40,0.8)" stroke="#0EA5E9" stroke-width="1.2"/>
+            <rect x="52" y="28" width="16" height="42" rx="4" fill="#0EA5E9"/>
+            <rect x="36" y="44" width="48" height="16" rx="4" fill="#0EA5E9"/>
+            <circle cx="60" cy="52" r="7" fill="#10B981"/>
+            <path d="M86 27 Q106 14 100 68" fill="none" stroke="#10B981" stroke-width="1.5" stroke-dasharray="3 5" stroke-linecap="round"/>
+            <circle cx="113" cy="50" r="5" fill="#0EA5E9"/>
+            <circle cx="125" cy="50" r="5" fill="#0EA5E9" opacity=".6"/>
+            <circle cx="137" cy="50" r="5" fill="#0EA5E9" opacity=".3"/>
+          </g>
+          <text x="210" y="85" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="900" font-size="52" letter-spacing="-2" fill="#F8FAFC">Medi</text>
+          <text x="210" y="137" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="200" font-size="52" letter-spacing="-1.5" fill="#0EA5E9">Queue</text>
+          <rect x="210" y="147" width="220" height="1.5" fill="#1E3A5F"/>
+          <text x="210" y="168" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="300" font-size="10" letter-spacing="3" fill="#475569">PRO  ·  Smart Chamber Management</text>
+        </svg>
+      </div>
+      <div class="logo-card-footer">
+        <span class="logo-card-label">Transparent BG</span>
+        <a class="dl-btn" href="mediqueue_pro_transparent_HD.png" download>↓ PNG</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- APP ICON FAMILY -->
+  <div class="section-title">App Icon Family</div>
+  <div class="icon-row">
+    <div class="icon-box" style="max-width:140px">
+      <svg viewBox="0 0 96 96" width="96" height="96" xmlns="http://www.w3.org/2000/svg">
+        <rect width="96" height="96" rx="22" fill="#0D2247"/>
+        <polygon points="48,8 76,24 76,60 48,76 20,60 20,24" fill="none" stroke="#185FA5" stroke-width="1.5"/>
+        <polygon points="48,18 66,28 66,54 48,64 30,54 30,28" fill="#0A1628" stroke="#0EA5E9" stroke-width="1"/>
+        <rect x="41" y="27" width="14" height="34" rx="3.5" fill="#0EA5E9"/>
+        <rect x="28" y="38" width="40" height="14" rx="3.5" fill="#0EA5E9"/>
+        <circle cx="48" cy="46" r="6.5" fill="#10B981"/>
+        <path d="M66 28 Q80 17 76 60" fill="none" stroke="#10B981" stroke-width="1.5" stroke-dasharray="3 4" stroke-linecap="round"/>
+        <circle cx="83" cy="43" r="4" fill="#0EA5E9"/>
+        <circle cx="91" cy="43" r="3" fill="#0EA5E9" opacity=".5"/>
+      </svg>
+      <span class="lbl">96 × 96  PWA</span>
+      <a class="dl-btn" href="mediqueue_pro_app_icon_1024.png" download>↓ PNG</a>
+    </div>
+
+    <div class="icon-box" style="max-width:108px">
+      <svg viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+        <rect width="64" height="64" rx="14" fill="#0D2247"/>
+        <polygon points="32,5 52,16 52,42 32,53 12,42 12,16" fill="none" stroke="#185FA5" stroke-width="1.2"/>
+        <polygon points="32,13 46,21 46,37 32,45 18,37 18,21" fill="#0A1628" stroke="#0EA5E9" stroke-width=".8"/>
+        <rect x="27" y="18" width="10" height="22" rx="2.5" fill="#0EA5E9"/>
+        <rect x="20" y="24" width="24" height="10" rx="2.5" fill="#0EA5E9"/>
+        <circle cx="32" cy="30" r="5" fill="#10B981"/>
+      </svg>
+      <span class="lbl">64 × 64</span>
+    </div>
+
+    <div class="icon-box" style="max-width:88px">
+      <svg viewBox="0 0 48 48" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+        <rect width="48" height="48" rx="10" fill="#0D2247"/>
+        <polygon points="24,4 38,12 38,32 24,40 10,32 10,12" fill="none" stroke="#185FA5" stroke-width="1"/>
+        <polygon points="24,10 34,16 34,30 24,36 14,30 14,16" fill="#0A1628" stroke="#0EA5E9" stroke-width=".7"/>
+        <rect x="20" y="14" width="8" height="18" rx="2" fill="#0EA5E9"/>
+        <rect x="14" y="19" width="20" height="8" rx="2" fill="#0EA5E9"/>
+        <circle cx="24" cy="23" r="4" fill="#10B981"/>
+      </svg>
+      <span class="lbl">48 × 48</span>
+    </div>
+
+    <div class="icon-box" style="max-width:72px">
+      <svg viewBox="0 0 32 32" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="6" fill="#0D2247"/>
+        <polygon points="16,3 25,8 25,22 16,27 7,22 7,8" fill="none" stroke="#185FA5" stroke-width=".8"/>
+        <polygon points="16,7 22,11 22,20 16,24 10,20 10,11" fill="#0A1628" stroke="#0EA5E9" stroke-width=".6"/>
+        <rect x="13" y="10" width="6" height="12" rx="1.5" fill="#0EA5E9"/>
+        <rect x="9" y="13" width="14" height="6" rx="1.5" fill="#0EA5E9"/>
+        <circle cx="16" cy="16" r="3" fill="#10B981"/>
+      </svg>
+      <span class="lbl">32 × 32  Favicon</span>
+      <a class="dl-btn" href="mediqueue_pro_favicon_256.png" download>↓ PNG</a>
+    </div>
+
+    <div class="icon-box" style="flex:2; min-width:180px">
+      <svg viewBox="0 0 200 48" width="200" height="48" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="48" rx="10" fill="#0F172A"/>
+        <polygon points="18,5 29,11 29,31 18,37 7,31 7,11" fill="none" stroke="#fff" stroke-width="1"/>
+        <polygon points="18,10 25,14 25,26 18,30 11,26 11,14" fill="#0F172A" stroke="#fff" stroke-width=".7"/>
+        <rect x="14.5" y="13" width="7" height="16" rx="2" fill="#fff"/>
+        <rect x="10" y="17" width="16" height="7" rx="2" fill="#fff"/>
+        <text x="38" y="23" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="900" font-size="18" letter-spacing="-0.5" fill="#F8FAFC">Medi</text>
+        <text x="87" y="23" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="200" font-size="18" letter-spacing="-0.5" fill="#F8FAFC">Queue</text>
+        <rect x="38" y="27" width="130" height=".8" fill="#334155"/>
+        <text x="38" y="38" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="600" font-size="7" letter-spacing="2.5" fill="#475569">PRO  ·  SMART CHAMBER MANAGEMENT</text>
+      </svg>
+      <span class="lbl">Monochrome · Prescription Pad</span>
+      <a class="dl-btn" href="mediqueue_pro_compact_HD.png" download>↓ PNG</a>
+    </div>
+  </div>
+
+  <!-- COLOR PALETTE -->
+  <div class="section-title">Brand Color Palette</div>
+  <div class="palette-grid">
+    <div class="swatch"><div class="swatch-color" style="background:#050E1A"></div><div class="swatch-info"><div class="swatch-name">Deep Navy</div><div class="swatch-hex">#050E1A</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#0A1628"></div><div class="swatch-info"><div class="swatch-name">Navy 2</div><div class="swatch-hex">#0A1628</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#185FA5"></div><div class="swatch-info"><div class="swatch-name">Medical Blue</div><div class="swatch-hex">#185FA5</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#0EA5E9"></div><div class="swatch-info"><div class="swatch-name">Cyan Primary</div><div class="swatch-hex">#0EA5E9</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#06B6D4"></div><div class="swatch-info"><div class="swatch-name">Cyan Glow</div><div class="swatch-hex">#06B6D4</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#059669"></div><div class="swatch-info"><div class="swatch-name">Emerald PRO</div><div class="swatch-hex">#059669</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#10B981"></div><div class="swatch-info"><div class="swatch-name">AI Node</div><div class="swatch-hex">#10B981</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#7C3AED"></div><div class="swatch-info"><div class="swatch-name">Soft Purple</div><div class="swatch-hex">#7C3AED</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#F8FAFC"></div><div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#F8FAFC</div></div></div>
+  </div>
+
+  <!-- TYPOGRAPHY -->
+  <div class="section-title">Typography System</div>
+  <div class="type-card">
+    <div class="type-sample">
+      <div class="type-label">DISPLAY · WEIGHT 900</div>
+      <div style="font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-.04em;line-height:1.1">Medi<span style="color:var(--cyan);font-weight:200">Queue</span></div>
+    </div>
+    <div class="type-sample">
+      <div class="type-label">HEADING · WEIGHT 700</div>
+      <div style="font-size:clamp(18px,3vw,28px);font-weight:700;letter-spacing:-.03em">Smart Chamber Management</div>
+    </div>
+    <div class="type-sample">
+      <div class="type-label">BADGE · WEIGHT 700 CAPS</div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:.2em;background:var(--green);display:inline-block;padding:4px 12px;border-radius:5px">PRO</div>
+    </div>
+    <div>
+      <div class="type-label">TAGLINE · WEIGHT 300</div>
+      <div style="font-size:clamp(10px,2vw,13px);font-weight:300;letter-spacing:.12em;color:var(--slate)">Healthcare Technology · Bangladesh · AI-Ready Platform</div>
+    </div>
+  </div>
+
+  <!-- CONTEXT MOCKUPS -->
+  <div class="section-title">Context Mockups</div>
+  <div class="mockup-grid">
+
+    <!-- TV Queue Display -->
+    <div class="mockup-card">
+      <div class="mockup-header">
+        <span class="mockup-title">TV Queue Display</span>
+        <div style="display:flex;gap:4px">
+          <div style="width:8px;height:8px;background:#10B981;border-radius:50%"></div>
+          <div style="font-size:9px;color:var(--emerald)">LIVE</div>
+        </div>
+      </div>
+      <div class="mockup-body">
+        <div class="tv-queue">
+          <div style="display:flex;align-items:center;gap:6px;justify-content:center;margin-bottom:8px">
+            <svg viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="12,1 19,5 19,15 12,19 5,15 5,5" fill="none" stroke="#185FA5" stroke-width="1.2"/>
+              <rect x="10" y="6" width="4" height="8" rx="1" fill="#0EA5E9"/>
+              <rect x="7" y="9" width="10" height="4" rx="1" fill="#0EA5E9"/>
+              <circle cx="12" cy="11" r="2" fill="#10B981"/>
+            </svg>
+            <span style="font-size:10px;font-weight:700;letter-spacing:.15em;color:var(--cyan)">MEDIQUEUE PRO</span>
+          </div>
+          <div class="tv-now">NOW SERVING</div>
+          <div class="tv-token"><span>A</span>-42</div>
+          <div class="tv-meta">Dr. Rahman · Chamber 3</div>
+          <div class="tv-queue-list">
+            <div class="tv-queue-item">
+              <span class="tok">A-43</span>
+              <span class="room">Chamber 3</span>
+              <div class="status-dot called"></div>
+            </div>
+            <div class="tv-queue-item">
+              <span class="tok">B-12</span>
+              <span class="room">Chamber 1</span>
+              <div class="status-dot waiting"></div>
+            </div>
+            <div class="tv-queue-item">
+              <span class="tok">A-44</span>
+              <span class="room">Chamber 3</span>
+              <div class="status-dot waiting"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile App -->
+    <div class="mockup-card">
+      <div class="mockup-header">
+        <span class="mockup-title">Mobile App</span>
+        <span style="font-size:9px;color:var(--cyan)">iOS / Android</span>
+      </div>
+      <div class="mockup-body" style="display:flex;justify-content:center">
+        <div class="mobile-frame">
+          <div class="mobile-notch"><div class="notch-bar"></div></div>
+          <div class="mobile-status">
+            <span style="font-size:8px;font-weight:700;color:var(--cyan)">MQ</span>
+            <div style="display:flex;gap:3px;align-items:center">
+              <div style="width:4px;height:4px;background:var(--emerald);border-radius:50%"></div>
+              <span style="font-size:8px;color:var(--text-light)">Online</span>
+            </div>
+          </div>
+          <div class="mobile-header">
+            <svg viewBox="0 0 20 20" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="10,2 16,5.5 16,13.5 10,17 4,13.5 4,5.5" fill="none" stroke="#185FA5" stroke-width="1"/>
+              <polygon points="10,5 14,7.5 14,12 10,14.5 6,12 6,7.5" fill="#0A1628" stroke="#0EA5E9" stroke-width=".7"/>
+              <rect x="8" y="7" width="4" height="7" rx="1" fill="#0EA5E9"/>
+              <rect x="6" y="9" width="8" height="4" rx="1" fill="#0EA5E9"/>
+              <circle cx="10" cy="10.5" r="2" fill="#10B981"/>
+            </svg>
+            <div>
+              <div style="font-size:11px;font-weight:800;letter-spacing:-.02em">Medi<span style="font-weight:200;color:var(--cyan)">Queue</span></div>
+              <div style="font-size:8px;color:var(--text-light)">Token A-43 · Chamber 3</div>
+            </div>
+          </div>
+          <div class="mobile-content">
+            <div class="m-row">
+              <div class="m-card">
+                <div class="m-card-label">Your Token</div>
+                <div class="m-card-value" style="color:var(--cyan)">A-43</div>
+              </div>
+              <div class="m-card">
+                <div class="m-card-label">Wait</div>
+                <div class="m-card-value" style="color:var(--emerald)">~8m</div>
+              </div>
+            </div>
+            <div class="m-card">
+              <div class="m-card-label">Chamber</div>
+              <div style="font-size:12px;font-weight:700;color:#F8FAFC">Dr. Rahman · Room 3</div>
+            </div>
+            <div class="m-card" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3)">
+              <div style="display:flex;align-items:center;gap:6px">
+                <div style="width:6px;height:6px;background:var(--emerald);border-radius:50%"></div>
+                <div style="font-size:9px;color:var(--emerald);font-weight:600">Next up — 1 patient ahead</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prescription Pad -->
+    <div class="mockup-card">
+      <div class="mockup-header">
+        <span class="mockup-title">Prescription Pad</span>
+        <span style="font-size:9px;color:var(--text-light)">Print · A5</span>
+      </div>
+      <div class="mockup-body">
+        <div class="rx-pad">
+          <div class="rx-header">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+              <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="12,2 20,6.5 20,16.5 12,21 4,16.5 4,6.5" fill="none" stroke="#185FA5" stroke-width="1.2"/>
+                <polygon points="12,6 17,9 17,15 12,18 7,15 7,9" fill="#EFF6FF" stroke="#93C5FD" stroke-width=".8"/>
+                <rect x="9.5" y="9" width="5" height="9" rx="1.5" fill="#185FA5"/>
+                <rect x="7" y="11.5" width="10" height="5" rx="1.5" fill="#185FA5"/>
+                <circle cx="12" cy="13.5" r="2" fill="#059669"/>
+              </svg>
+              <div>
+                <div class="rx-title">Medi<span>Queue</span></div>
+                <div class="rx-sub">PRO · SMART CHAMBER MANAGEMENT</div>
+              </div>
+            </div>
+          </div>
+          <div class="rx-field">Patient: <span>Md. Rahim Uddin</span></div>
+          <div class="rx-field">Token: <span>A-42</span> &nbsp;&nbsp; Chamber: <span>Dr. Rahman, Room 3</span></div>
+          <div class="rx-field">Date: <span>22 May 2026</span></div>
+          <div style="height:40px;border-bottom:.8px solid #E2E8F0;margin-bottom:8px"></div>
+          <div style="height:30px;border-bottom:.8px solid #E2E8F0;margin-bottom:8px"></div>
+          <div style="height:30px;border-bottom:.8px solid #E2E8F0;margin-bottom:8px"></div>
+          <div class="rx-footer">MediQueue Pro · Smart Hospital Technology · Bangladesh</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DOWNLOAD ALL -->
+  <div class="download-all">
+    <div class="dl-all-title">Download Complete Package</div>
+    <div class="dl-all-sub">7 files · HD PNG exports · All variants included</div>
+    <div class="dl-all-grid">
+      <div class="dl-file"><span class="dl-icon">🖼</span><div><div class="dl-file-name">Dark HD</div><div class="dl-file-size">1600×640 · 175 KB</div></div></div>
+      <div class="dl-file"><span class="dl-icon">🖼</span><div><div class="dl-file-name">Light HD</div><div class="dl-file-size">1600×640 · 129 KB</div></div></div>
+      <div class="dl-file"><span class="dl-icon">🖼</span><div><div class="dl-file-name">Transparent</div><div class="dl-file-size">1800×660 · 128 KB</div></div></div>
+      <div class="dl-file"><span class="dl-icon">🖼</span><div><div class="dl-file-name">Monochrome</div><div class="dl-file-size">1800×660 · 126 KB</div></div></div>
+      <div class="dl-file"><span class="dl-icon">📱</span><div><div class="dl-file-name">App Icon 1024px</div><div class="dl-file-size">1024×1024 · 75 KB</div></div></div>
+      <div class="dl-file"><span class="dl-icon">🔖</span><div><div class="dl-file-name">Favicon 256px</div><div class="dl-file-size">256×256 · 7 KB</div></div></div>
+      <div class="dl-file"><span class="dl-icon">📋</span><div><div class="dl-file-name">Compact / Pad</div><div class="dl-file-size">1440×360 · 93 KB</div></div></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
+      <a class="dl-btn" href="mediqueue_pro_dark_HD.png" download style="padding:10px 24px;font-size:11px">↓ Dark HD</a>
+      <a class="dl-btn" href="mediqueue_pro_light_HD.png" download style="padding:10px 24px;font-size:11px">↓ Light HD</a>
+      <a class="dl-btn" href="mediqueue_pro_app_icon_1024.png" download style="padding:10px 24px;font-size:11px">↓ App Icon</a>
+      <a class="dl-btn" href="mediqueue_pro_transparent_HD.png" download style="padding:10px 24px;font-size:11px">↓ Transparent</a>
+      <a class="dl-btn" href="mediqueue_pro_monochrome_HD.png" download style="padding:10px 24px;font-size:11px">↓ Monochrome</a>
+      <a class="dl-btn" href="mediqueue_pro_favicon_256.png" download style="padding:10px 24px;font-size:11px">↓ Favicon</a>
+      <a class="dl-btn" href="mediqueue_pro_compact_HD.png" download style="padding:10px 24px;font-size:11px">↓ Compact</a>
+    </div>
+  </div>
+
+</div>
+<footer>
+  MediQueue Pro · Brand Identity System · Direction 04 — Hexa Sync · Healthcare Technology · Bangladesh
+</footer>
+</body>
+</html>
